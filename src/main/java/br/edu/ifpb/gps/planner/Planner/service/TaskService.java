@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.edu.ifpb.gps.planner.Planner.model.Task;
+import br.edu.ifpb.gps.planner.Planner.model.Usuario;
 import br.edu.ifpb.gps.planner.Planner.repository.TaskRepository;
 
 
@@ -74,5 +75,16 @@ public class TaskService {
         }else {
             return "Task does not exist";
         }
+    }
+    
+    @Transactional
+    public String deleteAllTask(){
+
+        List<Task> tasks = taskRepository.findAll();
+        		tasks.stream().forEach(s -> {
+                    taskRepository.delete(s);
+                });
+                return "All Task record deleted successfully.";
+                
     }
 }

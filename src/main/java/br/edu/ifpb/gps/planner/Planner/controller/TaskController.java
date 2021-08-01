@@ -43,4 +43,9 @@ public class TaskController {
     public String deleteTask(@RequestBody Task task){
         return taskService.deleteTask(task);
     }
+    
+    @RequestMapping(value = "/task/deletealltask", method = RequestMethod.DELETE)
+    public String deleteAllTask(){
+        return taskService.deleteAllTask();
+    }
 }

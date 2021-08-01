@@ -41,4 +41,9 @@ public class UsuarioController {
     public String deleteUsuario(@RequestBody Usuario usuario){
         return usuarioService.deleteUsuario(usuario);
     }
+    
+    @RequestMapping(value = "/usuario/deleteallusuario", method = RequestMethod.DELETE)
+    public String deleteAllUsuario(){
+        return usuarioService.deleteAllUsuario();
+    }
 }

@@ -1,5 +1,6 @@
 package br.edu.ifpb.gps.planner.Planner.service;
 
+import java.io.Console;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -73,6 +74,17 @@ public class UsuarioService {
         }else {
             return "Usuario does not exist";
         }
+    }
+    
+    @Transactional
+    public String deleteAllUsuario(){
+
+                List<Usuario> Usuarios = usuarioRepository.findAll();
+                Usuarios.stream().forEach(s -> {
+                    usuarioRepository.delete(s);
+                });
+                return "All Usuario record deleted successfully.";
+                
     }
 }
 
