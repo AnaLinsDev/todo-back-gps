@@ -2,28 +2,40 @@ package br.edu.ifpb.gps.planner.Planner.model;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Task {
 
-    @Id
-    private int id;
+	@Id
+	private int id;
 
-    private String title;
-    
-    private String description;
-    
-    private String status;
+	private String title;
 
-    private Date data;
-    
-    private int usuarioId;
+	private String description;
 
-    public Task() {
-    }
+	private String status;
+
+	private Date data;
+
+	@ManyToOne(cascade = { CascadeType.ALL })
+	private Usuario usuario;
+
+	public Task() {
+	}
+
+	public Task(int id, String title, String description, String status, Date data, Usuario usuario) {
+		this.title = title;
+		this.description = description;
+		this.status = status;
+		this.data = data;
+		this.usuario = usuario;
+	}
 
 	public int getId() {
 		return id;
@@ -65,8 +77,8 @@ public class Task {
 		this.data = data;
 	}
 
-	public int getUsuarioId() {
-		return usuarioId;
-	}  
-    
+	public void setUsuario(Usuario usu) {
+		this.usuario = usu;
+	}
+
 }
