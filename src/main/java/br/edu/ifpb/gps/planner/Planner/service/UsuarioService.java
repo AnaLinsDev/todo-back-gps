@@ -1,12 +1,13 @@
 package br.edu.ifpb.gps.planner.Planner.service;
 
-import java.io.Console;
 import java.util.List;
 
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.edu.ifpb.gps.planner.Planner.model.Usuario;
 import br.edu.ifpb.gps.planner.Planner.repository.UsuarioRepository;
@@ -87,4 +88,3 @@ public class UsuarioService {
                 
     }
 }
-

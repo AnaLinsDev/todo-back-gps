@@ -21,7 +21,7 @@ public class Task {
 
 	private String status;
 
-	private Date data;
+	private String date;
 
 	@ManyToOne(cascade = { CascadeType.ALL })
 	private Usuario usuario;
@@ -29,11 +29,11 @@ public class Task {
 	public Task() {
 	}
 
-	public Task(int id, String title, String description, String status, Date data, Usuario usuario) {
+	public Task(int id, String title, String description, String status, String date, Usuario usuario) {
 		this.title = title;
 		this.description = description;
 		this.status = status;
-		this.data = data;
+		this.date = date;
 		this.usuario = usuario;
 	}
 
@@ -69,12 +69,12 @@ public class Task {
 		this.status = status;
 	}
 
-	public Date getData() {
-		return data;
+	public String getDate() {
+		return date;
 	}
 
-	public void setData(Date data) {
-		this.data = data;
+	public void setDate(String date) {
+		this.date = date;
 	}
 
 	public void setUsuario(Usuario usu) {

@@ -47,7 +47,7 @@ public class TaskService {
                     TaskToBeUpdate.setTitle(task.getTitle());
                     TaskToBeUpdate.setDescription(task.getDescription());
                     TaskToBeUpdate.setStatus(task.getStatus());
-                    TaskToBeUpdate.setData(task.getData());
+                    TaskToBeUpdate.setDate(task.getDate());
                     taskRepository.save(TaskToBeUpdate);
                 });
                 return "Task record updated.";
