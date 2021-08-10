@@ -3,6 +3,7 @@ package br.edu.ifpb.gps.planner.Planner.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,7 +13,7 @@ import br.edu.ifpb.gps.planner.Planner.model.Task;
 import br.edu.ifpb.gps.planner.Planner.service.TaskService;
 
 
-
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 public class TaskController {
 	
