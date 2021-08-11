@@ -20,8 +20,6 @@ public class Usuario {
 
 	private String email;
 
-	@OneToMany(mappedBy = "usuario")
-	private List<Task> tasks;
 
 	public Usuario() {
 	}
@@ -58,14 +56,6 @@ public class Usuario {
 		this.email = email;
 	}
 
-	public void adicionarTask(Task task) {
-		tasks.add(task);
-	}
-
-	public void removerTask(Task task) {
-		task.setUsuario(null);
-		tasks.remove(task);
-	}
 
 	@Override
 	public String toString() {
