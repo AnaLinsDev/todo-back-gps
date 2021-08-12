@@ -20,12 +20,12 @@ public class TaskService {
     private TaskRepository taskRepository;
 
     @Transactional
-    public String createTask(Task task){
+    public Task createTask(Task task){
         try {
             
               task.setId(null == taskRepository.findMaxId()? 0 : taskRepository.findMaxId() + 1);
               taskRepository.save(task);
-              return "Task record created successfully.";
+              return task;
 
         }catch (Exception e){
             throw e;

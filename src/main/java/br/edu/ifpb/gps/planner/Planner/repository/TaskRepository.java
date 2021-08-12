@@ -14,6 +14,6 @@ public interface TaskRepository extends JpaRepository<Task, Integer> {
     public boolean existsById(int id);
     
     @Query("select max(t.id) from Task t")
-    public Integer findMaxId();
+    public Integer findMaxId(); 
 	
 }

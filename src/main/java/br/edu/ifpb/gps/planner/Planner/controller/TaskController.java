@@ -26,7 +26,7 @@ public class TaskController {
 	}
 
     @RequestMapping(value = "/task/createtask", method = RequestMethod.POST)
-    public String createTask(@RequestBody Task task){
+    public Task createTask(@RequestBody Task task){
         return taskService.createTask(task);
     }
 
