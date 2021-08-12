@@ -23,7 +23,7 @@ public class TaskService {
     public Task createTask(Task task){
         try {
             
-              task.setId(null == taskRepository.findMaxId()? 0 : taskRepository.findMaxId() + 1);
+              //task.setId(null == taskRepository.findMaxId()? 0 : taskRepository.findMaxId() + 1);
               taskRepository.save(task);
               return task;
 

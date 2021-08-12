@@ -12,6 +12,7 @@ import javax.persistence.OneToMany;
 public class Usuario {
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 
 	private String name;
