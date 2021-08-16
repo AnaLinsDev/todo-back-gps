@@ -13,7 +13,7 @@ import br.edu.ifpb.gps.planner.Planner.model.Task;
 import br.edu.ifpb.gps.planner.Planner.service.TaskService;
 
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 public class TaskController {
 	
