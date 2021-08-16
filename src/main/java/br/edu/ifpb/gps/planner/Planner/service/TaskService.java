@@ -3,13 +3,13 @@ package br.edu.ifpb.gps.planner.Planner.service;
 import java.util.List;
 import java.util.Optional;
 
+import java.util.stream.Stream;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.edu.ifpb.gps.planner.Planner.model.Task;
-import br.edu.ifpb.gps.planner.Planner.model.Usuario;
 import br.edu.ifpb.gps.planner.Planner.repository.TaskRepository;
 
 
@@ -64,7 +64,8 @@ public class TaskService {
         if (taskRepository.existsById(task.getId())){
             try {
                 Optional<Task> tasks = taskRepository.findById(task.getId());
-                tasks.stream().forEach(s -> {
+                tasks.stream()
+                .forEach(s -> {
                     taskRepository.delete(s);
                 });
                 return "Task record deleted successfully.";
