@@ -1,9 +1,7 @@
 package br.edu.ifpb.gps.planner.Planner.service;
 
 import java.util.List;
-import java.util.Optional;
 
-import java.util.stream.Stream;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,15 +39,14 @@ public class TaskService {
     public String updateTask(Task task){
         if (taskRepository.existsById(task.getId())){
             try {
-                Optional<Task> Tasks = taskRepository.findById(task.getId());
-                Tasks.stream().forEach(s -> {
-                    Task TaskToBeUpdate = taskRepository.findById(s.getId()).get();
+
+                    Task TaskToBeUpdate = taskRepository.findById(task.getId()).get();
                     TaskToBeUpdate.setTitle(task.getTitle());
                     TaskToBeUpdate.setDescription(task.getDescription());
                     TaskToBeUpdate.setStatus(task.getStatus());
                     TaskToBeUpdate.setDate(task.getDate());
                     taskRepository.save(TaskToBeUpdate);
-                });
+                
                 return "Task record updated.";
             }catch (Exception e){
                 throw e;
@@ -63,11 +60,9 @@ public class TaskService {
     public String deleteTask(Task task){
         if (taskRepository.existsById(task.getId())){
             try {
-                Optional<Task> tasks = taskRepository.findById(task.getId());
-                tasks.stream()
-                .forEach(s -> {
-                    taskRepository.delete(s);
-                });
+
+                taskRepository.deleteById(task.getId());
+                
                 return "Task record deleted successfully.";
             }catch (Exception e){
                 throw e;
@@ -81,11 +76,8 @@ public class TaskService {
     @Transactional
     public String deleteAllTask(){
 
-        List<Task> tasks = taskRepository.findAll();
-        		tasks.stream().forEach(s -> {
-                    taskRepository.delete(s);
-                });
-                return "All Task record deleted successfully.";
+          taskRepository.deleteAll();
+          return "All Task record deleted successfully.";
                 
     }
 }
